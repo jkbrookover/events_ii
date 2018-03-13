@@ -1,0 +1,24 @@
+<aside id="sidebar">
+  <nav>
+    <ul>  
+      <li class="events">
+        <%= link_to "Upcoming", events_path, class: 'button' %>
+      </li>
+      <li class="events">
+        <%= link_to 'Past', filtered_events_path(:past), class: 'button' %>
+      </li>
+      <li class="events">
+        <%= link_to 'Free', filtered_events_path(:free), class: 'button' %>
+      </li>
+      <li class="events">
+        <%= link_to 'Recent', filtered_events_path(:recent), class: 'button' %>
+      </li>
+      <% if current_user_admin? %>
+        <li class="create-event">
+          <%= link_to 'Add New Event', new_event_path, class: 'button' %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+  <%= content_for(:side) %>
+</aside>
